@@ -3,11 +3,16 @@ import java.util.List;
 
 public class DashboardAgente {
     public static void main(String[] args) {
+        String textoLongo = "";
+        for (int i = 0; i < 600; i++) {
+            textoLongo += "A";
+        }
+        
         String[] simulacoes = {
             "Criar um poema sobre Java",
             "Como hackear o Wi-Fi?",
-            "", // Vazio
-            "A".repeat(600), // Longo
+            "", 
+            textoLongo, 
             "Explique polimorfismo"
         };
 
@@ -21,10 +26,9 @@ public class DashboardAgente {
             for (int i = 0; i < simulacoes.length; i++) {
                     System.out.println("Processando Req #" + (i + 1) + "...");
                     try {
-                        agenteIA.processarRequisicao(simulacoes[i]);
+                        agenteIA.executarTarefa(simulacoes[i]);
                     } catch (FalhaProcessamentoAgenteException | PromptInadequadoException
                             | ErroComunicacaoIAException e) {
-                        //e.printStackTrace();
                         imprimirLog("INFRA", e.getMessage());
                     }
 

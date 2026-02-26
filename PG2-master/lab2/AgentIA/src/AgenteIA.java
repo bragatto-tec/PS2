@@ -12,11 +12,9 @@ public abstract class AgenteIA {
     }
 
     public void conectarServidor() throws ErroComunicacaoIAException {
-        if (Math.random() > 0.7) { 
-            throw new ErroComunicacaoIAException("Falha na conexão com o cluster de GPUs (Timeout).");
-        }
+        ModuloConexao.validarLink();
         System.out.println("Servidor conectado");
     }
 
-    public abstract void processarRequisicao(String input) throws FalhaProcessamentoAgenteException, PromptInadequadoException, ErroComunicacaoIAException;
+    public abstract void executarTarefa(String input) throws FalhaProcessamentoAgenteException, PromptInadequadoException, ErroComunicacaoIAException;
 }

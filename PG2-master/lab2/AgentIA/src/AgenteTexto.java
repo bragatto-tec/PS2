@@ -5,7 +5,7 @@ public class AgenteTexto extends AgenteIA {
     }
 
     @Override
-    public void processarRequisicao(String input) throws FalhaProcessamentoAgenteException, PromptInadequadoException, ErroComunicacaoIAException {
+    public void executarTarefa(String input) throws FalhaProcessamentoAgenteException, PromptInadequadoException, ErroComunicacaoIAException {
         conectarServidor();
         
         if (input.length() > 500) {
