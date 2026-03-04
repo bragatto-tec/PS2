@@ -5,6 +5,6 @@ public class PluginPesquisaWeb implements IAcaoAgente {
            prompt.toLowerCase().contains("roubar")) {
             throw new PromptInadequadoException("Palavra inadequada sendo lançada");
         }
-        System.out.println("Tudo Certo");
+        System.out.println("Resultado da pesquisa no Google sobre: " + prompt);
     }
 }
