@@ -16,5 +16,10 @@ public abstract class AgenteIA {
         System.out.println("Servidor conectado");
     }
 
+    public void usarHabilidade(IAcaoAgente ferramenta, String comando) throws Exception {
+        System.out.println("[" + this.nome + "] Usando habilidade externa");
+        ferramenta.processarRequisicao(comando);
+    }
+
     public abstract void executarTarefa(String input) throws FalhaProcessamentoAgenteException, PromptInadequadoException, ErroComunicacaoIAException;
 }

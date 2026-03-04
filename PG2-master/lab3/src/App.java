@@ -18,6 +18,21 @@ public class App {
     }
     
     public static void main(String[] args) throws Exception {
+        AgenteIA agente = new AgenteTexto("AssistenteIA");
+        
+        PluginPesquisaWeb pluginPesquisa = new PluginPesquisaWeb();
+        PluginGeradorCodigo pluginCodigo = new PluginGeradorCodigo();
+        
+        agente.usarHabilidade(pluginPesquisa, "Como aprender Java");
+        
+        agente.usarHabilidade(pluginCodigo, "Como aprender Java");
+        
+        try {
+            agente.usarHabilidade(pluginPesquisa, "hackear");
+        } catch (PromptInadequadoException e) {
+            System.out.println("Erro capturado via interface: " + e.getMessage());
+        }
+        
         List<AgenteIA> orquestrador = new ArrayList<>();
         
         orquestrador.add(new AgenteTexto("GPT-4"));
